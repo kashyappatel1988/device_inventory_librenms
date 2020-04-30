@@ -21,11 +21,6 @@ def lmns_api():
     ls = []
     result = {}
     for dc in list(d.keys()):
-        if dc != 'pdx1':
-            curl1 = ''' curl -H 'X-Auth-Token: %s' https://%s-librenms01.xyzlocal/api/v0/devices?all -ks ''' %(d[dc],dc)
-            op1 = json.loads(subprocess.check_output(curl1,shell=True))
-            ls.append(op1)
-        else:
             curl1 = ''' curl -H 'X-Auth-Token: %s' https://%s-librenms.xyzlocal/api/v0/devices?all -ks ''' %(d[dc],dc)
             op1 = json.loads(subprocess.check_output(curl1,shell=True))
             ls.append(op1)
